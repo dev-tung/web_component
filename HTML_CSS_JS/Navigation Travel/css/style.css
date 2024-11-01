@@ -48,8 +48,10 @@ table {
   --s-color : #306fc3;
   --w-color : #d2d9e1;
   --b-color : #212529;
+  --f-color : #bebebe;
 
   --f-space : 15px;
+  --s-space : 60px;
 }
 
 .container {
@@ -195,12 +197,7 @@ table {
         height: 100vh;
         width: 100%;
         z-index: 2;
-        box-shadow: var(--s1);
         animation: modalFromLeft 0.5s;
-    }
-
-    .modalMenuBox{
-
     }
 
     .modalMenuTop{
@@ -327,10 +324,6 @@ table {
         padding: 10px;
         border-radius: 5px;
         font-size: .875rem;
-    }
-
-    .modalMenuRightNavLink{
-
     }
 
 
@@ -607,10 +600,123 @@ table {
     }
 
     /* * */
-    
 }
 
+.sectionProductFrame{
+    display: block;
+    height: 200px;
+    background-size: auto 200%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+.sectionProductGrid{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 414px) {
+    .sectionProductGrid{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sectionProductFrame{
+        height: 150px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sectionProductGrid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 992px) {
+    .sectionProductGrid{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .sectionProductFrame{
+        height: 222px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}
+
+.sectionProductCard{
+    border: 1px solid var(--f-color);
+    padding-bottom: 10px;
+}
+
+.sectionProductFrame:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.sectionProductInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 5px;
+    padding: 5px;
+}
+
+.sectionProductTitle{
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000000cf;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.sectionProductTitle:hover{
+    color: var(--p-color);
+    opacity: 0.8;
+}
+
+.sectionProductPrice{
+    color: rgb(192, 60, 60);
+    font-size: 13px;
+    font-weight: bold;
+    background-color: rgb(226, 232, 132);
+    padding: 8px 5px;
+    border-radius: 3px;
+}
+
+.sectionProductBuy{
+    background: #004aadbf;
+    color: white;
+    text-decoration: none;
+    width: fit-content;
+    padding: 8px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.sectionProductBuy:hover{
+    background:var(--p-color);
+}
+
+.section{
+    margin: 60px 0;
+}
+
+.sectionTitle{
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 30px;
+}  
 
 
 
