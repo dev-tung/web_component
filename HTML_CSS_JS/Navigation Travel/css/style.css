@@ -1,0 +1,616 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root{
+  --p-color : #004AAD;
+  --s-color : #306fc3;
+  --w-color : #d2d9e1;
+  --b-color : #212529;
+
+  --f-space : 15px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 var(--f-space);
+    position: relative;
+}
+
+@media (min-width: 576px) {
+    .container {
+        width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 1320px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 1200px) {
+    #headerD{
+        display: none;
+    }
+
+    #headerM{
+        display: block;
+    }
+
+    .headerTop{
+        background-color: white;
+        padding: 15px 0;
+    }
+
+    .headerTopContent{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .headerLogo{
+
+    }
+
+    .headerLogoImg{
+        width: 45px;
+    }
+
+    .headerSearchForm{
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .headerSearchFormInput{
+        border-radius: 15px;
+        border: 1px solid rgb(165, 163, 163);
+        width: 157px;
+        height: 27px;
+        padding: 0 10px;
+        outline: none;
+    }
+
+    .headerSearchFormBtn{
+        background: none;
+        border: none;
+    }
+
+    .headerSearchFormBtnSvg{
+        width: 20px;
+        height: 20px;
+        padding-top: 5px;
+        color: rgb(165, 163, 163);
+    }
+
+    .modalMenuToggleBtn{
+        background: none;
+        border: none;
+    }
+
+    .modalMenuToggleSvg{
+        width: 20px;
+        height: 20px;
+        padding-top: 5px;
+    }
+
+    @keyframes modalFromLeft {
+        from {
+           right: -100%;
+        }
+        to {
+            right: 0px;
+        }
+    }
+
+    .modalMenu{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 9999;
+        display: flex;
+        justify-content: right;
+        display: none;
+    }
+
+    .modalMenu::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(101,108,133,0.8);
+    }
+
+    .modalMenu.Show{
+        display: flex;
+    }
+
+    .modalMenuBox{
+        position: absolute;
+        background-color: var(--s-color);
+        color: white;
+        height: 100vh;
+        width: 100%;
+        z-index: 2;
+        box-shadow: var(--s1);
+        animation: modalFromLeft 0.5s;
+    }
+
+    .modalMenuBox{
+
+    }
+
+    .modalMenuTop{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .modalMenuTitle{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .modalMenuClose{
+        border: none;
+        background: none;
+        margin-right: -5px;
+        margin-top: 1px;
+        padding: 0;
+    }
+
+    .modalMenuCloseSvg{
+        width: 27px;
+        height: 27px;
+        color: rgb(207, 207, 207);
+        margin: 0;
+        padding: 0;
+    }
+
+    .modalMenuBody{
+        border-top: 1px solid rgb(207, 207, 207);
+        padding-top: 15px;
+    }
+
+    .modalMenuNav{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modalMenuLink{
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding: 15px 20px;
+    }
+
+
+    .modalMenuDownNavGroup .modalMenuLink::after{
+        display: inline-block;
+        margin-left: .655em;
+        vertical-align: .255em;
+        content: "";
+        border-top: .3em solid;
+        border-right: .3em solid transparent;
+        border-bottom: 0;
+        border-left: .3em solid transparent;
+    }
+
+    .modalMenuDownNav{
+        background-color: white;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+        width: max-content;
+        padding: 5px;
+        margin-left: 20px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        display: none;
+    }
+    
+    .modalMenuDownNavLink{
+        display: block;
+        text-decoration: none;
+        color: #212529;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: .875rem;
+    }
+    
+    .modalMenuDownNavLink:hover{
+        background-color: rgb(44 156 249 / 10%);
+        border-radius: 5px;
+    }
+
+    .modalMenuDownNavGroup:hover .modalMenuDownNav{
+        display: flex;
+    }
+
+    .modalMenuRightNavGroup{
+        position: relative;
+    }
+
+    .modalMenuRightNavGroup .modalMenuDownNavLink::after{
+        display: inline-block;
+        margin-left: .655em;
+        content: "";
+        border-top: .3em solid transparent;
+        border-left: .3em solid;
+        border-bottom: .3em solid transparent;
+        border-right: 0;
+    }
+
+    .modalMenuRightNav{
+        padding: 5px;
+        position: absolute;
+        width: 190px;
+        top: -5px;
+        right: -205px;
+        background-color: white;
+        border-radius: 0 5px 5px 0;
+        display: none;
+    }
+
+    .modalMenuRightNavGroup:hover .modalMenuRightNav{
+        display: block;
+    }
+
+    .modalMenuRightNavLink{
+        display: block;
+        text-decoration: none;
+        color: #212529;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: .875rem;
+    }
+
+    .modalMenuRightNavLink{
+
+    }
+
+
+    .headerBanner {
+        height: 50vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../img/header/banner.jpg');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .headerBanner::after{
+        position: absolute;
+        content: "";
+        left: 0;
+        width: 100%;
+        height: 50vh;
+        background: black;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .headerBannerText{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        gap: 15px;
+    }
+
+    .headerBannerTitle{
+        letter-spacing: 1px;
+        text-align: center;
+        width: 285px;
+        line-height: 38px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .headerBannerMision{
+        letter-spacing: 2px;
+        color: #FFFFFF;
+        font-style: italic;
+        font-size: 12px;
+    }
+
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+    #headerD{
+        display: block;
+    }
+
+    #headerM{
+        display: none;
+    }
+
+    .header {
+        height: 80vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../img/header/banner.jpg');
+    }
+
+    .header::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        width: 100%;
+        height: 80vh;
+        background: black;
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .headerContent{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .headerTop{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .headerLogo{
+
+    }
+
+    .headerLogoImg{
+
+    }
+
+    .headerNav{
+        display: flex;
+        gap: 40px;
+    }
+
+    .headerLink{
+        text-decoration: none;
+        color: var(--w-color);
+        display: block;
+        position: relative;
+    }
+
+    .headerLink::after{
+        content: '';
+        display: block;
+        width: 120%;
+        height: 30px;
+        position: absolute;
+    }
+
+    .headerLink:hover{
+        color: white;
+    }
+
+    .headerDownNavGroup{
+        position: relative;
+    }
+
+    .headerDownNavGroup:hover .headerDownNav{
+        display: block;
+    }
+
+    .headerDownNavLink{
+        display: flex;
+        align-items: center;
+        gap: 7px;
+    }
+
+    .headerDownNavIcon{
+        width: 10px;
+        height: 6px;
+        filter: invert(100%);
+    }
+
+    .headerDownNav{
+        background-color: rgb(219 219 219);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        border-radius: 5px;
+        width: max-content;
+        top:  30px;
+        padding: 5px;
+        display: none;
+    }
+
+    .headerDownNav .headerLink{
+        padding: 10px;
+        color: var(--b-color);
+        font-size: .875rem;
+    }
+
+    .headerDownNav .headerLink:last-child{
+        border-bottom: none;
+    }
+
+    .headerDownNav .headerLink:hover{
+        background-color: var(--s-color);
+        border-radius: 5px;
+        color: white;
+    }
+
+    .headerDownNav .headerRightNavLink:hover{
+        background-color: var(--s-color);
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .headerDownNav .headerRightNavLink:hover .headerRightNavIcon{
+        filter: invert(100%);
+    }
+
+    .headerDownNav .headerRightNavLink:hover .headerLink{
+        color: white;
+    }
+
+    .headerRightNavGroup{
+        position: relative;
+    }
+
+    .headerRightNavLink{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .headerRightNavIcon{
+        width: 6px;
+        height: 10px;
+        margin-right: 10px;
+    }
+
+    .headerRightNav{
+        background-color: rgb(219 219 219);
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        top: -5px;
+        width: 190px;
+        right : -200px;
+        display: none;
+    }
+
+    .headerRightNavGroup:hover .headerRightNav{
+        display: block;
+    }
+
+    .headerSearchForm{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .headerSearchFormInput{
+        border-radius: 15px;
+        border: none;
+        width: 157px;
+        height: 27px;
+        padding: 0 10px;
+        outline: none;
+    }
+
+    .headerSearchFormBtn{
+        background: none;
+        border: none;
+    }
+
+    .headerSearchFormBtnSvg{
+        width: 20px;
+        height: 20px;
+        padding-top: 5px;
+        color: white;
+    }
+
+    .headerText{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .headerTextTitle{
+        line-height: 55px;
+        font-size: 45px;
+        font-weight: bold;
+        color: #FFFFFF;
+        letter-spacing: 2px;
+    }
+
+    .headerTextMision{
+        letter-spacing: 2px;
+        color: #FFFFFF;
+        font-style: italic;
+    }
+
+    /* * */
+    
+}
+
+
+
+
+
